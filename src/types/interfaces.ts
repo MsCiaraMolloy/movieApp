@@ -23,18 +23,16 @@ export interface BaseMovieListProps {
   }   
 
 export interface MovieDetailsProps extends BaseMovieProps {
-    genres: {
-      id: number;
-      name: string;
-    }[];
-  }
+  genres: {
+    id: number;
+    name: string;
+  }[];
+  production_countries: {
+    id: number;
+    name: string;
+  }[];
+}
 
-export interface MovieDetailsProps extends BaseMovieProps {
-    production_countries: {
-      id: number;
-      name: string;
-    }[];
-  }
 export interface MovieImage {
   file_path: string;
   aspect_ratio?: number; //some props are optional...
@@ -61,3 +59,18 @@ export interface Review{
 }
 
 export type FilterOption = "title" | "genre";
+
+
+export interface GenreData {
+  genres: {
+    id: string;
+    name: string
+  }[];
+}
+
+export interface DiscoverMovies {
+  page: number;	
+  total_pages: number;
+  total_results: number;
+  results: BaseMovieProps[];
+}
