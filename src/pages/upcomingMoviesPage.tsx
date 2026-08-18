@@ -38,7 +38,7 @@ const UpcomingMoviesPage: React.FC = () => {
                     )}
                 />
             ) : (
-                <p>Waiting for upcoming movies</p>
+                <p>Now Waiting for upcoming movies</p>
             )}
         </>
     );
