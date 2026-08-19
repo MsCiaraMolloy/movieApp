@@ -52,12 +52,6 @@ export interface MovieListPageTemplateProps extends BaseMovieListProps {
   title: string;
 }
 
-export interface Review{
-    id: string;
-    content: string
-    author: string
-}
-
 export type FilterOption = "title" | "genre";
 
 
@@ -76,9 +70,16 @@ export interface DiscoverMovies {
 }
 
 export interface Review {
+  id: string,
   author: string,
   content: string,
   agree: boolean,
   rating: number,
   movieId: number,
+}
+
+export interface SearchCriteria {
+  year: string;
+  certification: string;
+  page: number;
 }

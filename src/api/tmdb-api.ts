@@ -73,3 +73,15 @@ export const getUpcomingMovies = () => {
     .then(json => json.results);
 };
 
+export const getMoviesBySearch = (year: string, certification: string, page: number) => {
+  return fetch(
+    `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&primary_release_year=${year}&certification_country=US&certification=${certification}&page=${page}`
+  ).then((response) => {
+    if (!response.ok)
+      throw new Error(`Unable to fetch search results. Response status: ${response.status}`);
+    return response.json();
+  })
+    .catch((error) => {
+      throw error
+    });
+};
