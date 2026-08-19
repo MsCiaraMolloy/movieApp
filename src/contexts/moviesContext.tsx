@@ -5,12 +5,16 @@ interface MovieContextInterface {
     favourites: number[];
     addToFavourites: ((movie: BaseMovieProps) => void);
     removeFromFavourites: ((movie: BaseMovieProps) => void);
+    mustWatch: number[]; //exercise 4
+    addToMustWatch: ((movie: BaseMovieProps) => void); //exercise 4
     addReview: ((movie: BaseMovieProps, review: Review) => void);  // NEW
 }
 const initialContextState: MovieContextInterface = {
     favourites: [],
     addToFavourites: () => {},
     removeFromFavourites: () => {},
+    mustWatch: [], //exercise 4
+    addToMustWatch: () => {}, //exercise 4
     addReview: (movie, review) => { movie.id, review},  // NEW
 };
 
@@ -19,6 +23,7 @@ export const MoviesContext = React.createContext<MovieContextInterface>(initialC
 const MoviesContextProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
     const [myReviews, setMyReviews] = useState<Review[]>( [] )  // NEW
     const [favourites, setFavourites] = useState<number[]>([]); // Added to try fix bug 17/Aug/26 AI
+    const [mustWatch, setMustWatch] = useState<number[]>([]); //exercise 4
 
 
     const addToFavourites = useCallback((movie: BaseMovieProps) => {
@@ -34,6 +39,19 @@ const MoviesContextProvider: React.FC<React.PropsWithChildren> = ({ children }) 
         setFavourites((prevFavourites) => prevFavourites.filter((mId) => mId !== movie.id));
     }, []);
 
+    // exercise 4 
+    const addToMustWatch = useCallback((movie: BaseMovieProps) => {
+        setMustWatch((prevMustWatch) => {
+            if (!prevMustWatch.includes(movie.id)) {
+                const updated = [...prevMustWatch, movie.id];
+                console.log("Must Watch list:", updated);
+                return updated;
+            }
+            return prevMustWatch;
+        });
+    }, []);
+
+
     const addReview = (movie:BaseMovieProps, review: Review) => {   // NEW
         setMyReviews( {...myReviews, [movie.id]: review } )
       };
@@ -45,6 +63,8 @@ const MoviesContextProvider: React.FC<React.PropsWithChildren> = ({ children }) 
                 addToFavourites,
                 removeFromFavourites,
                 addReview,    // NEW
+                mustWatch, //exercise 4
+                addToMustWatch, //exercise 4
             }}
         >
             {children}
