@@ -12,6 +12,9 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import MovieSearchPage from "./pages/movieSearchPage";
+//Draft 2 
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -23,9 +26,24 @@ const queryClient = new QueryClient({
   },
 });
 
+//Draft 2 Creating colours scheme before app component
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#474769ff",   // dark navy - used for AppBar, buttons etc
+    },
+    secondary: {
+      main: "#fa634cff",   // red/pink - used for secondary buttons, icons
+    },
+  },
+});
+
+//Draft 2 Wrap app with the theme.
 const App = () => {
   return (
-    <QueryClientProvider client={queryClient}>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <SiteHeader />  
           <MoviesContextProvider>
@@ -42,7 +60,8 @@ const App = () => {
           </MoviesContextProvider>   
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
-    </QueryClientProvider>
+      </QueryClientProvider>
+    </ThemeProvider>
   );
 };
 

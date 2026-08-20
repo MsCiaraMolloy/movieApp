@@ -22,7 +22,7 @@ export const MoviesContext = React.createContext<MovieContextInterface>(initialC
 
 const MoviesContextProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
     const [myReviews, setMyReviews] = useState<Review[]>( [] )  // NEW
-    const [favourites, setFavourites] = useState<number[]>([]); // Added to try fix bug 17/Aug/26 AI
+    const [favourites, setFavourites] = useState<number[]>([]); // Added to try fix bug 17/Aug/26 
     const [mustWatch, setMustWatch] = useState<number[]>([]); //exercise 4
 
 

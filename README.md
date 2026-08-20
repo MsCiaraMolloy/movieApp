@@ -1,3 +1,27 @@
+Assignment Documentation
+
+Draft 1
+19/8/26
+During this development session, several features were added to the Movies App. 
+
+1. A Must Watch feature was implemented by adding a new state variable and update function to the MoviesContext.
+
+2. A new AddToMustWatchIcon card component was created, and the Upcoming Movies page was updated to display both the Add to Favourites and Add to Must Watch icons on each movie card.
+
+3. The Upcoming Movies page was also refactored to use the react-query library for data fetching, replacing the previous useEffect and useState approach, which means the list of upcoming movies is now cached in the browser and will not trigger a new HTTP request on every page mount. 
+
+4. A multi-criteria movie search feature was also built, consisting of a new getMoviesBySearch API function in tmdb-api.ts that accepts year, certification and page parameters, a new MovieSearchForm component with a year text input and certification dropdown, and a new MovieSearchPage that uses react-query with the enabled option to prevent fetching until the user submits the form. 
+
+5. The search results page includes Previous and Next pagination buttons driven by the total_pages value returned from the TMDB API. 
+
+6. A new Search route was added to the application router and a Search link was added to the site header navigation. These changes address the multi-criteria search, pagination, server state caching, and new views requirements from the Very Good band of the assignment specification.
+
+Draft 2
+20/8/26
+
+
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -28,3 +52,5 @@ export default {
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+

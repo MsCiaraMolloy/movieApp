@@ -78,6 +78,7 @@ export interface Review {
   movieId: number,
 }
 
+//draft 1 adding interface for function
 export interface SearchCriteria {
   year: string;
   certification: string;
