@@ -2,6 +2,7 @@ Assignment Documentation
 
 Draft 1
 19/8/26
+
 During this development session, several features were added to the Movies App. 
 
 1. A Must Watch feature was implemented by adding a new state variable and update function to the MoviesContext.
@@ -19,6 +20,22 @@ During this development session, several features were added to the Movies App.
 Draft 2
 20/8/26
 
+During this development session I aimed to update the colour scheme.
+
+1. The app's colour scheme was customised by introducing an MUI theme in src/index.tsx. The createTheme and ThemeProvider utilities were imported from @mui/material/styles, along with CssBaseline from @mui/material/CssBaseline. 
+
+2. A theme object was created using createTheme, defining a colour palette with a primary colour and a secondary colour. 
+
+3. The app was then wrapped in the ThemeProvider component with the theme passed as a prop, and CssBaseline was included to apply baseline styles across browsers. 
+
+4. The primary colour is automatically applied to components such as the AppBar, primary buttons and primary icons throughout the app. The secondary colour is applied to secondary buttons and icons.
+
+Note: AI was used here to teach me how to do this and I learned how to add a custom theme to an app in this way. 
+
+Draft 3
+20/8/26
+
+In this session I aimed to add a sorting feature that ordered the movie list from newest to oldest.
 
 
 

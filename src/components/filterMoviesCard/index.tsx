@@ -14,6 +14,9 @@ import Select from "@mui/material/Select";
 import { getGenres } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner';
+//Draft 3
+import Checkbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel";
 
 
 const styles = {
@@ -34,9 +37,12 @@ interface FilterMoviesCardProps {
   onUserInput: (f: FilterOption, s: string)  => void;
   titleFilter: string;
   genreFilter: string;
+  //Draft 3
+  onSortChange: (sortByRating: boolean) => void;
 }
 
-const FilterMoviesCard: React.FC<FilterMoviesCardProps> = ({ titleFilter, genreFilter, onUserInput }) => {
+//Draft 3 add onSortChange from props
+const FilterMoviesCard: React.FC<FilterMoviesCardProps> = ({ titleFilter, genreFilter, onUserInput, onSortChange }) => {
   const { data, error, isLoading, isError } = useQuery<GenreData, Error>("genres", getGenres);
 
   if (isLoading) {
@@ -100,15 +106,24 @@ const FilterMoviesCard: React.FC<FilterMoviesCardProps> = ({ titleFilter, genreF
         </FormControl>
       </CardContent>
     </Card>
+    //Draft 3 adding checkbox
     <Card sx={styles.root} variant="outlined">
-        <CardContent>
-          <Typography variant="h5" component="h1">
+      <CardContent>
+        <Typography variant="h5" component="h1">
             <SortIcon fontSize="large" />
             Sort the movies.
-          </Typography>
-        </CardContent>
-      </Card>
-      </>
+        </Typography>
+        <FormControlLabel
+            control={
+                <Checkbox
+                    onChange={(e) => onSortChange(e.target.checked)}
+                />
+            }
+            label="Sort by Rating"
+        />
+      </CardContent>
+    </Card>
+    </>
   );
 }
 

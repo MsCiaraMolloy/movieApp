@@ -30,10 +30,13 @@ interface MovieFilterUIProps {
     onFilterValuesChange: (f: string, s: string) => void;
     titleFilter: string;
     genreFilter: string;
+    //Draft 3
+    onSortChange: (sortByRating: boolean) => void;
+
 }
 
-
-const MovieFilterUI: React.FC<MovieFilterUIProps> = ({ onFilterValuesChange, titleFilter, genreFilter }) => {
+//Draft 3 add to component onSortChange
+const MovieFilterUI: React.FC<MovieFilterUIProps> = ({ onFilterValuesChange, titleFilter, genreFilter, onSortChange }) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
 
     return (
@@ -55,6 +58,8 @@ const MovieFilterUI: React.FC<MovieFilterUIProps> = ({ onFilterValuesChange, tit
                     onUserInput={onFilterValuesChange}
                     titleFilter={titleFilter}
                     genreFilter={genreFilter}
+                    //Draft 3
+                    onSortChange={onSortChange}
                 />
             </Drawer>
         </>
