@@ -15,7 +15,7 @@ During this development session, several features were added to the Movies App.
 
 5. The search results page includes Previous and Next pagination buttons driven by the total_pages value returned from the TMDB API. 
 
-6. A new Search route was added to the application router and a Search link was added to the site header navigation. These changes address the multi-criteria search, pagination, server state caching, and new views requirements from the Very Good band of the assignment specification.
+6. A new Search route was added to the application router and a Search link was added to the site header navigation. These changes address the multi-criteria search, pagination, server state caching, and new views requirement.
 
 Draft 2
 20/8/26
@@ -35,9 +35,18 @@ Note: AI was used here to teach me how to do this and I learned how to add a cus
 Draft 3
 20/8/26
 
-In this session I aimed to add a sorting feature that ordered the movie list from newest to oldest.
+In this session I aimed to add a sorting feature that ordered the movie list using the movie rating.
 
+1. A sort by rating feature was added to the home page. The filterMoviesCard component was updated to include a checkbox labelled Sort by Rating inside the existing Sort card, using MUI Checkbox and FormControlLabel components. 
 
+2. An onSortChange prop was added to both filterMoviesCard and movieFilterUI to pass the checkbox state up through the component tree. 
+
+3. In homePage, a sortByRating state variable was added using useState, and the displayed movie list is sorted by vote_average in descending order when the checkbox is checked, using the JavaScript sort method before being passed to the PageTemplate component.
+
+Draft 4
+26/8/26
+
+In this session I aimed to
 
 # React + TypeScript + Vite
 

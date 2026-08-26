@@ -69,11 +69,14 @@ const isFavourite = favourites.find((id) => id === movie.id)? true : false;//NEW
               {movie.release_date}
             </Typography>
           </Grid>
+
           <Grid item xs={6}>
-            <Typography variant="h6" component="p">
+            <Link to={`/movies/${movie.id}`} style={{ textDecoration: "none", color: "Highlight" }}>
+              <Typography variant="h6" component="p">
               <StarRateIcon fontSize="small" />
               {"  "} {movie.vote_average}{" "}
-            </Typography>
+              </Typography>
+            </Link>
           </Grid>
         </Grid>
       </CardContent>
