@@ -10,6 +10,9 @@ import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from '../movieReviews'
+//Draft 8 - adding cast to movie details
+import MovieCast from '../movieCast';
+
 
 const styles = {
     chipSet: {
@@ -30,55 +33,61 @@ const styles = {
         right: 2,
     },
 };
-
+// Draft 8 Added lines 74-77
 const MovieDetails: React.FC<MovieDetailsProps> = (movie) => {
-
+    
     const [drawerOpen, setDrawerOpen] = useState(false); // New
-
+    
     return (
         <>
-            <Typography variant="h5" component="h3">
-                Overview
-            </Typography>
+        <Typography variant="h5" component="h3">
+        Overview
+        </Typography>
+        
+        <Typography variant="h6" component="p">
+        {movie.overview}
+        </Typography>
+        
+        <Paper component="ul" sx={styles.chipSet}>
+        <li>
+        <Chip label="Genres" sx={styles.chipLabel} color="primary" />
+        </li>
+        {movie.genres.map((g) => (
+            <li key={g.name}>
+            <Chip label={g.name} />
+            </li>
+        ))}
+        </Paper>
+        <Paper component="ul" sx={styles.chipSet}>
+        <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
+        <Chip
+        icon={<MonetizationIcon />}
+        label={`${movie.revenue.toLocaleString()}`}
+        />
+        <Chip
+        icon={<StarRate />}
+        label={`${movie.vote_average} (${movie.vote_count}`}
+        />
+        <Chip label={`Released: ${movie.release_date}`} />
+        </Paper>
 
-            <Typography variant="h6" component="p">
-                {movie.overview}
-            </Typography>
-
-            <Paper component="ul" sx={styles.chipSet}>
-                <li>
-                    <Chip label="Genres" sx={styles.chipLabel} color="primary" />
-                </li>
-                {movie.genres.map((g) => (
-                    <li key={g.name}>
-                        <Chip label={g.name} />
-                    </li>
-                ))}
-            </Paper>
-            <Paper component="ul" sx={styles.chipSet}>
-                <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
-                <Chip
-                    icon={<MonetizationIcon />}
-                    label={`${movie.revenue.toLocaleString()}`}
-                />
-                <Chip
-                    icon={<StarRate />}
-                    label={`${movie.vote_average} (${movie.vote_count}`}
-                />
-                <Chip label={`Released: ${movie.release_date}`} />
-            </Paper>
-            <Fab
-                color="secondary"
-                variant="extended"
-                onClick={() => setDrawerOpen(true)}
-                sx={styles.fab}
-            >
-                <NavigationIcon />
-                Reviews
-            </Fab>
-            <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-                <MovieReviews {...movie} />
-            </Drawer>
+        <Typography variant="h5" component="h3" sx={{ mt: 2 }}>
+        Cast
+        </Typography>
+        <MovieCast {...movie} />
+        
+        <Fab
+        color="secondary"
+        variant="extended"
+        onClick={() => setDrawerOpen(true)}
+        sx={styles.fab}
+        >
+        <NavigationIcon />
+        Reviews
+        </Fab>
+        <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+        <MovieReviews {...movie} />
+        </Drawer>
         </>
     );
 };

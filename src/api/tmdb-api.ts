@@ -86,3 +86,12 @@ export const getMoviesBySearch = (year: string, certification: string, page: num
       throw error
     });
 };
+
+//Draft 8 Get movie cast
+export const getMovieCast = (id: string | number) => {
+  return fetch(
+    `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${import.meta.env.VITE_TMDB_KEY}`
+  )
+    .then(res => res.json())
+    .then(json => json.cast);
+};

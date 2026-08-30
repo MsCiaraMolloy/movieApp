@@ -53,6 +53,21 @@ Draft 5
 
 In this session I aimed to add a new story using storybook. I did this by using the movieCard.stories.tsx file and taking the bare minimum and applied to to movieSearchForm.tsx It is very basic but it sems to work fine. 
 
+Draft 6
+30/8/26
+
+In this dev session I attempted to make the onSortChange an optional argument as it is not needed on the favourites page or in the (future) must watch page. I learned how to add the ? to make this optional. I added this in the filterMoviesCard/index.tsx and movieFilterUI/index.tsx
+
+Draft 7
+30/8/26
+
+In this session I aimed to create the mustWatch Page.
+
+1. I copied the layout of the favourites page and changed favourites to mustWatch.
+
+2. I added the import MustWatchPage to index.tsx and added the route in the Routes element
+
+3. Finally I added the Must Watch Page to the navigation bar in src/components/siteHeader/index.tsx, inside the menuOptions array.
 
 # React + TypeScript + Vite
 

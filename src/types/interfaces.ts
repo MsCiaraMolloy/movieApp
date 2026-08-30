@@ -84,3 +84,11 @@ export interface SearchCriteria {
   certification: string;
   page: number;
 }
+
+//Draft 8 - Add CastMember interface
+export interface CastMember {
+  id: number;
+  name: string;
+  character: string;
+  profile_path: string | null;
+}
