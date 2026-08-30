@@ -26,12 +26,13 @@ const SiteHeader: React.FC = () => {
   const open = Boolean(anchorEl);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
-
+//Draft 7 add must watch page to nav bar
   const menuOptions = [
     { label: "Home", path: "/" },
     { label: "Favorites", path: "/movies/favourites" },
     { label: "Upcoming", path: "/movies/upcoming" },
     { label: "Search", path: "/movies/search" },
+    { label: "Must Watch", path: "/movies/mustwatch" },
   ];
 
   const handleMenuSelect = (pageURL: string) => {

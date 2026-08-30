@@ -15,6 +15,9 @@ import MovieSearchPage from './pages/movieSearchPage';
 //Draft 2 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+//Draft 7 add MustWatchPage
+import MustWatchPage from "./pages/mustWatchPage";
+
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -48,6 +51,7 @@ const App = () => {
         <SiteHeader />  
           <MoviesContextProvider>
             <Routes>
+              <Route path="/movies/mustwatch" element={<MustWatchPage />} />
               <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
               <Route path="/movies/favourites" element={<FavouriteMoviesPage />} />
               <Route path="/movies/:id" element={<MoviePage />} />
