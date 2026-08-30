@@ -37,8 +37,8 @@ interface FilterMoviesCardProps {
   onUserInput: (f: FilterOption, s: string)  => void;
   titleFilter: string;
   genreFilter: string;
-  //Draft 3
-  onSortChange: (sortByRating: boolean) => void;
+  //Draft 3 & Draft 6 add optional
+  onSortChange?: (sortByRating: boolean) => void;
 }
 
 //Draft 3 add onSortChange from props
@@ -68,7 +68,7 @@ const FilterMoviesCard: React.FC<FilterMoviesCardProps> = ({ titleFilter, genreF
   const handleGenreChange = (e: SelectChangeEvent) => {
     handleChange(e, "genre", e.target.value)
   };
-//Draft 3 adding checkbox 117
+//Draft 3 adding checkbox 117 & Draft 6 make sorting optional 
   return (
     <>
     <Card sx={styles.root} variant="outlined">
@@ -115,7 +115,7 @@ const FilterMoviesCard: React.FC<FilterMoviesCardProps> = ({ titleFilter, genreF
         <FormControlLabel
             control={
                 <Checkbox
-                    onChange={(e) => onSortChange(e.target.checked)}
+                    onChange={(e) => onSortChange?.(e.target.checked)}
                 />
             }
             label="Sort by Rating"

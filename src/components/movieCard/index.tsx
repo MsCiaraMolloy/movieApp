@@ -35,7 +35,7 @@ const MovieCard: React.FC<MovieCardProps> = ({movie, action}) => {
 
 const isFavourite = favourites.find((id) => id === movie.id)? true : false;//NEW
  
-
+//Draft 4 add link line 74
   return (
       <Card sx={styles.card}>
       <CardHeader
@@ -69,9 +69,7 @@ const isFavourite = favourites.find((id) => id === movie.id)? true : false;//NEW
               {movie.release_date}
             </Typography>
           </Grid>
-
           <Grid item xs={6}>
-            //Draft 4 add link 
             <Link to={`/movies/${movie.id}`} style={{ textDecoration: "none", color: "Highlight" }}>
               <Typography variant="h6" component="p">
               <StarRateIcon fontSize="small" />

@@ -31,7 +31,8 @@ interface MovieFilterUIProps {
     titleFilter: string;
     genreFilter: string;
     //Draft 3
-    onSortChange: (sortByRating: boolean) => void;
+    //Draft 6 - make onSortChange optional in interface by adding ?
+    onSortChange?: (sortByRating: boolean) => void;
 
 }
 
