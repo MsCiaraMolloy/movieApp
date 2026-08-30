@@ -46,7 +46,13 @@ In this session I aimed to add a sorting feature that ordered the movie list usi
 Draft 4
 26/8/26
 
-In this session I aimed to
+In this session I aimed to add hyperlinking by wrapping the rating in the src/components/movieCard/index.tsx (line 60+) with a <link> and changed the colour blue so it would stand out. When you click this rating it brings you to the movie details page. 
+
+Draft 5
+27/8/26
+
+In this session I aimed to add a new story using storybook. I did this by using the movieCard.stories.tsx file and taking the bare minimum and applied to to movieSearchForm.tsx It is very basic but it sems to work fine. 
+
 
 # React + TypeScript + Vite
 

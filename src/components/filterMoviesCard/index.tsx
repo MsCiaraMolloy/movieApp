@@ -68,7 +68,7 @@ const FilterMoviesCard: React.FC<FilterMoviesCardProps> = ({ titleFilter, genreF
   const handleGenreChange = (e: SelectChangeEvent) => {
     handleChange(e, "genre", e.target.value)
   };
-
+//Draft 3 adding checkbox 117
   return (
     <>
     <Card sx={styles.root} variant="outlined">
@@ -106,7 +106,6 @@ const FilterMoviesCard: React.FC<FilterMoviesCardProps> = ({ titleFilter, genreF
         </FormControl>
       </CardContent>
     </Card>
-    //Draft 3 adding checkbox
     <Card sx={styles.root} variant="outlined">
       <CardContent>
         <Typography variant="h5" component="h1">
