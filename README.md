@@ -69,6 +69,18 @@ In this session I aimed to create the mustWatch Page.
 
 3. Finally I added the Must Watch Page to the navigation bar in src/components/siteHeader/index.tsx, inside the menuOptions array.
 
+Draft 8
+31/8/26
+
+In this session I aimed to add the cast as a list view to the details page of each movie. 
+movieCast index page was created, modelled on movieReviews index page. A new function was added to the api file, a castMember interface was added. Edits made to movieDetails index.
+
+Draft 9
+31/8/26
+
+In this session I aimed to add a Quiz page in the same way the other pages were added. 
+Imports added to src/index, quiz added to the navigation bar. 
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

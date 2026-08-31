@@ -107,8 +107,4 @@ const SiteHeader: React.FC = () => {
         </Toolbar>
       </AppBar>
       <Offset />
-    </>
-  );
-};
-
-export default SiteHeader;
+    </
