@@ -95,3 +95,17 @@ export const getMovieCast = (id: string | number) => {
     .then(res => res.json())
     .then(json => json.cast);
 };
+
+//Draft 9
+export const getPopularActors = (page: number) => {
+  return fetch(
+    `https://api.themoviedb.org/3/person/popular?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&page=${page}`
+  ).then((response) => {
+    if (!response.ok)
+      throw new Error(`Unable to fetch actors. Response status: ${response.status}`);
+    return response.json();
+  })
+    .catch((error) => {
+      throw error
+    });
+};

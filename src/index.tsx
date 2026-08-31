@@ -17,6 +17,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 //Draft 7 add MustWatchPage
 import MustWatchPage from "./pages/mustWatchPage";
+import QuizPage from "./pages/quizPage"; //Draft 9 
 
 
 const queryClient = new QueryClient({
@@ -51,6 +52,7 @@ const App = () => {
         <SiteHeader />  
           <MoviesContextProvider>
             <Routes>
+              <Route path="/quiz" element={<QuizPage />} />
               <Route path="/movies/mustwatch" element={<MustWatchPage />} />
               <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
               <Route path="/movies/favourites" element={<FavouriteMoviesPage />} />

@@ -92,3 +92,17 @@ export interface CastMember {
   character: string;
   profile_path: string | null;
 }
+
+//Draft 9 - Quiz interfaces for the actor and what they are known for.
+export interface KnownForMovie {
+  id: number;
+  title?: string;
+  name?: string;
+}
+
+export interface Actor {
+  id: number;
+  name: string;
+  profile_path: string | null;
+  known_for: KnownForMovie[];
+}
